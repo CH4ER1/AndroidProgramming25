@@ -1,73 +1,107 @@
 // 글 작성 화면
-package com.example.finalproject
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF">
 
-import android.app.Activity
-import android.content.Intent
-import android.net.Uri
-import android.os.Bundle
-import android.widget.*
-import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+    <LinearLayout
+        android:id="@+id/archieveLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-class RegisterActivity : AppCompatActivity() {
+        <!-- 상단 제목 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="기록 작성하기"
+            android:background="#2A7C32"
+            android:padding="12dp"
+            android:textColor="#ffffff"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center" />
 
-    private lateinit var starViews: List<ImageView>
-    private lateinit var imageSelect: ImageView
-    private val IMAGE_PICK_CODE = 1000
+        <!-- 제목 입력 -->
+        <EditText
+            android:id="@+id/editTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="제목을 입력하세요" />
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_register)
+        <!-- 별점 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="12dp"
+            android:id="@+id/starLayout">
 
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.archieveLayout)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
-        }
+            <!-- 별 아이콘 5개 (버튼처럼 작동) -->
+            <ImageView android:id="@+id/star1" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
+            <ImageView android:id="@+id/star2" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
+            <ImageView android:id="@+id/star3" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
+            <ImageView android:id="@+id/star4" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
+            <ImageView android:id="@+id/star5" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
+        </LinearLayout>
 
-        // ⭐️ 1. 별점 클릭 설정
-        starViews = listOf(
-            findViewById(R.id.star1),
-            findViewById(R.id.star2),
-            findViewById(R.id.star3),
-            findViewById(R.id.star4),
-            findViewById(R.id.star5)
-        )
+        <!-- 사진 선택 -->
+        <ImageView
+            android:id="@+id/imageSelect"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:src="@drawable/gallery"
+            android:contentDescription="사진 추가" />
 
-        for ((index, star) in starViews.withIndex()) {
-            star.setOnClickListener {
-                for (i in starViews.indices) {
-                    starViews[i].setImageResource(
-                        if (i <= index) R.drawable.star1 else R.drawable.emptystar
-                    )
-                }
-            }
-        }
+        <!-- 분야 선택 -->
+        <Spinner
+            android:id="@+id/spinnerCategory"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:spinnerMode="dropdown" />
 
-        // 📷 2. 사진 선택 설정
-        imageSelect = findViewById(R.id.imageSelect)
-        imageSelect.setOnClickListener {
-            val intent = Intent(Intent.ACTION_PICK)
-            intent.type = "image/*"
-            startActivityForResult(intent, IMAGE_PICK_CODE)
-        }
+        <!-- 내용 입력 -->
+        <EditText
+            android:id="@+id/editContent"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:hint="내용을 입력하세요"
+            android:background="@drawable/edittext_background"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginTop="16dp" />
 
-        // 🏷️ 3. 분야 선택 Spinner 설정
-        val spinner: Spinner = findViewById(R.id.spinnerCategory)
-        val categories = listOf("야구", "LCK", "공연")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, categories)
-        spinner.adapter = adapter
-    }
+        <!-- 작성 완료 버튼 -->
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="작성 완료"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#DDC196"
+            android:textColor="#ffffff" />
 
-    // 📸 선택된 사진을 ImageView에 표시
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == IMAGE_PICK_CODE && resultCode == Activity.RESULT_OK) {
-            val uri: Uri? = data?.data
-            imageSelect.setImageURI(uri)
-        }
-    }
-}
+        <!-- 하단 내비게이션 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#f5f5f5"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp">
+
+            <ImageView android:layout_width="76dp" android:layout_height="40dp" android:src="@drawable/archieve1" />
+            <ImageView android:layout_width="76dp" android:layout_height="40dp" android:src="@drawable/star1" />
+            <ImageView android:layout_width="76dp" android:layout_height="40dp" android:src="@drawable/post1" />
+            <ImageView android:layout_width="76dp" android:layout_height="40dp" android:src="@drawable/setting1" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
