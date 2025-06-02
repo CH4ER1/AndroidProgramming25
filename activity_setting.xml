@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".SettingActivity">
+<!-- 헤더 -->
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="환경설정"
+        android:background="#2A7C32"
+        android:padding="12dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인 정보"
+        android:textSize="20sp"
+        android:padding="12dp"
+        android:textStyle="bold" />
+<!-- 이름 바인딩 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@@@"
+            android:textSize="18sp"
+            android:padding="12dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="abcdefgh@naver.com"
+            android:textSize="15sp"
+            android:padding="12dp" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnLogout" android:text="로그아웃" style="@style/FilterButton"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewPosts"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+
+
+
+    <!-- 네비게이션 -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f5f5f5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/archieve1" />
+
+        <!-- 즐겨찾기 -->
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/star1" />
+
+        <!--글 작성하기 -->
+        <ImageView
+            android:id="@+id/btnWritePost"
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/post1" />
+
+        <!-- 설정 -->
+        <ImageView
+            android:id="@+id/btnSetting"
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:padding="0dp"
+            android:src="@drawable/setting1" />
+
+    </LinearLayout>
+
+</LinearLayout>
