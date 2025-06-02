@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:background="#ffffff"
     tools:context=".MainScreenActivity">
-<!-- 메인 화면 / 글 전체 화면 -->
+    <!-- 메인 화면 / 글 전체 화면 -->
     <!-- 상단 제목 -->
     <TextView
         android:id="@+id/titleText"
@@ -80,10 +80,11 @@
 
         <!-- 설정 -->
         <ImageView
+            android:id="@+id/btnSetting"
             android:layout_width="76dp"
             android:layout_height="40dp"
-            android:padding="0dp"
             android:layout_margin="10dp"
+            android:padding="0dp"
             android:src="@drawable/setting1" />
 
     </LinearLayout>
