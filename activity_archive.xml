@@ -1,51 +1,79 @@
-// 글 작성 화면
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/archiveLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:background="#FFFFFF">
 
-    <LinearLayout
-        android:id="@+id/archieveLayout"
+    <TextView
+        android:id="@+id/titleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:background="#2A7C32"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="기록 작성하기"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
-        <!-- 상단 제목 -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="기록 작성하기"
-            android:background="#2A7C32"
-            android:padding="12dp"
-            android:textColor="#ffffff"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:gravity="center" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="8dp">
 
         <!-- 제목 입력 -->
         <EditText
             android:id="@+id/editTitle"
-            android:layout_width="match_parent"
+            android:layout_width="376dp"
             android:layout_height="wrap_content"
             android:hint="제목을 입력하세요" />
 
         <!-- 별점 -->
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center"
+            android:id="@+id/starLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="51dp"
             android:layout_marginTop="12dp"
-            android:id="@+id/starLayout">
+            android:gravity="center"
+            android:orientation="horizontal">
 
-            <!-- 별 아이콘 5개 (버튼처럼 작동) -->
-            <ImageView android:id="@+id/star1" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
-            <ImageView android:id="@+id/star2" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
-            <ImageView android:id="@+id/star3" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
-            <ImageView android:id="@+id/star4" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
-            <ImageView android:id="@+id/star5" android:layout_width="40dp" android:layout_height="40dp" android:src="@drawable/emptystar" />
+            <ImageView
+                android:id="@+id/star1"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/emptystar" />
+
+            <ImageView
+                android:id="@+id/star2"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/emptystar" />
+
+            <ImageView
+                android:id="@+id/star3"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/emptystar" />
+
+            <ImageView
+                android:id="@+id/star4"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/emptystar" />
+
+            <ImageView
+                android:id="@+id/star5"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:src="@drawable/emptystar" />
         </LinearLayout>
 
         <!-- 사진 선택 -->
@@ -55,53 +83,82 @@
             android:layout_height="100dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="16dp"
-            android:src="@drawable/gallery"
-            android:contentDescription="사진 추가" />
+            android:contentDescription="사진 추가"
+            android:src="@drawable/gallery" />
 
         <!-- 분야 선택 -->
         <Spinner
             android:id="@+id/spinnerCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="355dp"
+            android:layout_height="34dp"
             android:layout_marginTop="16dp"
             android:spinnerMode="dropdown" />
 
         <!-- 내용 입력 -->
         <EditText
             android:id="@+id/editContent"
-            android:layout_width="match_parent"
-            android:layout_height="150dp"
-            android:hint="내용을 입력하세요"
+            android:layout_width="349dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/edittext_background"
             android:gravity="top"
-            android:inputType="textMultiLine"
-            android:layout_marginTop="16dp" />
+            android:hint="내용을 입력하세요"
+            android:inputType="textMultiLine" />
 
         <!-- 작성 완료 버튼 -->
         <Button
             android:id="@+id/btnSubmit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="작성 완료"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:backgroundTint="#DDC196"
+            android:text="작성 완료"
             android:textColor="#ffffff" />
+    </LinearLayout>
 
-        <!-- 하단 내비게이션 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#f5f5f5"
-            android:gravity="center"
-            android:orientation="horizontal"
-            android:layout_marginTop="20dp">
+    <!-- 하단 내비게이션 바 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f5f5f5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp">
 
-            <ImageView android:layout_width="76dp" android:layout_height="40dp" android:src="@drawable/archieve1" />
-            <ImageView android:layout_width="76dp" android:layout_height="40dp" android:src="@drawable/star1" />
-            <ImageView android:layout_width="76dp" android:layout_height="40dp" android:src="@drawable/post1" />
-            <ImageView android:layout_width="76dp" android:layout_height="40dp" android:src="@drawable/setting1" />
-        </LinearLayout>
+        <!-- 글 목록 -->
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/archieve1" />
+
+        <!-- 즐겨찾기 -->
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/star1" />
+
+        <!-- 글 작성하기 -->
+        <ImageView
+            android:id="@+id/btnWritePost"
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/post1" />
+
+        <!-- 설정 -->
+        <ImageView
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/setting1" />
 
     </LinearLayout>
-</ScrollView>
+
+</LinearLayout>
