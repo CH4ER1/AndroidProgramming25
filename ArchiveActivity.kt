@@ -16,6 +16,7 @@ import androidx.core.view.WindowInsetsCompat
 import com.google.firebase.firestore.FirebaseFirestore
 import java.io.ByteArrayOutputStream
 import java.io.InputStream
+import kotlin.jvm.java
 
 class ArchiveActivity : AppCompatActivity() {
 
@@ -49,6 +50,21 @@ class ArchiveActivity : AppCompatActivity() {
         setupImagePicker()
         setupSpinner()
         setupSubmitButton()
+
+        // 하단 버튼
+        findViewById<ImageView>(R.id.btnAll).setOnClickListener {
+            startActivity(Intent(this, MainScreenActivity::class.java))
+        }
+
+        findViewById<ImageView>(R.id.btnSetting).setOnClickListener {
+            startActivity(Intent(this, SettingActivity::class.java))
+        }
+
+        findViewById<ImageView>(R.id.btnBookmark).setOnClickListener {
+            startActivity(Intent(this, BookmarkActivity::class.java))
+        }
+
+
     }
 
     private fun initViews() {
@@ -230,4 +246,5 @@ class ArchiveActivity : AppCompatActivity() {
             Toast.makeText(this, "이미지가 선택되었습니다", Toast.LENGTH_SHORT).show()
         }
     }
+
 }
