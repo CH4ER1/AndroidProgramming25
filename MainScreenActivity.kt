@@ -11,6 +11,7 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.firestore.FirebaseFirestore
+import kotlin.jvm.java
 
 class MainScreenActivity : AppCompatActivity() {
 
@@ -43,6 +44,10 @@ class MainScreenActivity : AppCompatActivity() {
 
         findViewById<ImageView>(R.id.btnSetting).setOnClickListener {
             startActivity(Intent(this, SettingActivity::class.java))
+        }
+
+        findViewById<ImageView>(R.id.btnBookmark).setOnClickListener {
+            startActivity(Intent(this, BookmarkActivity::class.java))
         }
 
         // 필터 버튼
