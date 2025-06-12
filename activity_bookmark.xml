@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:orientation="vertical"
+    tools:context=".BookmarkActivity">
+
+    <!-- 상단 제목 -->
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="즐겨찾기"
+        android:background="#2A7C32"
+        android:padding="12dp"
+        android:textColor="#ffffff"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:gravity="center" />
+
+    <!-- 필터 버튼 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:padding="8dp">
+
+        <Button android:id="@+id/btnAll" android:text="전체" style="@style/FilterButton"/>
+        <Button android:id="@+id/btnBaseball" android:text="야구" style="@style/FilterButton"/>
+        <Button android:id="@+id/btnLCK" android:text="LCK" style="@style/FilterButton"/>
+        <Button android:id="@+id/btnConcert" android:text="공연" style="@style/FilterButton"/>
+    </LinearLayout>
+
+    <!-- RecyclerView -->
+
+    <!-- 하단 내비게이션 -->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewPosts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f5f5f5"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <!-- 글 목록 -->
+        <ImageView
+            android:id="@+id/btnContent"
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/archieve1" />
+
+        <!-- 즐겨찾기 -->
+        <ImageView
+            android:id="@+id/btnBookmark"
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:padding="0dp"
+            android:src="@drawable/star1" />
+
+        <!--글 작성하기 -->
+        <ImageView
+            android:id="@+id/btnWritePost"
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:padding="0dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/post1" />
+
+        <!-- 설정 -->
+        <ImageView
+            android:id="@+id/btnSetting"
+            android:layout_width="76dp"
+            android:layout_height="40dp"
+            android:layout_margin="10dp"
+            android:padding="0dp"
+            android:src="@drawable/setting1" />
+
+    </LinearLayout>
+</LinearLayout>
