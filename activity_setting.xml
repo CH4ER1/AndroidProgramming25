@@ -56,7 +56,9 @@
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/btnLogout" android:text="로그아웃" style="@style/FilterButton"/>
+            android:id="@+id/btnLogout"
+            android:text="로그아웃"
+            style="@style/FilterButton"/>
 
 
         <androidx.recyclerview.widget.RecyclerView
@@ -65,10 +67,6 @@
             android:layout_height="0dp"
             android:layout_weight="1" />
     </LinearLayout>
-
-
-
-
     <!-- 네비게이션 -->
 
     <LinearLayout
@@ -80,14 +78,16 @@
         android:padding="15dp">
 
         <ImageView
+            android:id="@+id/btnAll"
             android:layout_width="76dp"
             android:layout_height="40dp"
-            android:padding="0dp"
             android:layout_margin="10dp"
+            android:padding="0dp"
             android:src="@drawable/archieve1" />
 
         <!-- 즐겨찾기 -->
         <ImageView
+            android:id="@+id/btnBookmark"
             android:layout_width="76dp"
             android:layout_height="40dp"
             android:padding="0dp"
